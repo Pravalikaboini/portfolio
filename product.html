@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Listing</title>
+<style>
+  body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4fdfc;
+  margin: 0;
+  padding: 20px;
+}
+
+.product-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeIn 0.4s forwards;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #004d40;
+}
+
+.card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="product-container">
+    <h1>Products</h1>
+
+    <div class="controls">
+      <select id="category-filter">
+        <option value="all">All Categories</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="books">Books</option>
+      </select>
+
+      <select id="sort-select">
+        <option value="default">Sort By</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+      </select>
+    </div>
+
+    <div id="product-list" class="grid"></div>
+  </div>
+
+  <script>
+    const productList = document.getElementById('product-list');
+const categoryFilter = document.getElementById('category-filter');
+const sortSelect = document.getElementById('sort-select');
+
+const products = [
+  { id: 1, name: 'Smartphone', category: 'electronics', price: 299 },
+  { id: 2, name: 'T-Shirt', category: 'clothing', price: 25 },
+  { id: 3, name: 'Laptop', category: 'electronics', price: 899 },
+  { id: 4, name: 'Novel Book', category: 'books', price: 12 },
+  { id: 5, name: 'Headphones', category: 'electronics', price: 59 },
+  { id: 6, name: 'Jeans', category: 'clothing', price: 45 },
+  { id: 7, name: 'Textbook', category: 'books', price: 35 },
+];
+
+function renderProducts(items) {
+  productList.innerHTML = '';
+  items.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <h3>${product.name}</h3>
+      <p>Category: ${product.category}</p>
+      <p>Price: $${product.price}</p>
+    `;
+    productList.appendChild(card);
+  });
+}
+function filterAndSort() {
+  let filtered = [...products];
+
+  const selectedCategory = categoryFilter.value;
+  const selectedSort = sortSelect.value;
+
+  if (selectedCategory !== 'all') {
+    filtered = filtered.filter(p => p.category === selectedCategory);
+  }
+
+  if (selectedSort === 'price-asc') {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (selectedSort === 'price-desc') {
+    filtered.sort((a, b) => b.price - a.price);
+  }
+
+  renderProducts(filtered);
+}
+
+categoryFilter.addEventListener('change', filterAndSort);
+sortSelect.addEventListener('change', filterAndSort);
+
+renderProducts(products);
+
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

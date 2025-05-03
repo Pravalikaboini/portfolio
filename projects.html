@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects</title>
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5rem;
+}
+
+
+section {
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: auto;
+}
+
+.projects ul {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+button {
+  padding: 10px;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005ecb;
+}
+
+
+.slide-down {
+  animation: slideDown 0.8s ease;
+}
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 20px 0;
+  justify-content: center; 
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.navbar li a:hover {
+  color: #0056b3;
+}
+
+
+
+.fade-in {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+}
+
+
+</style>
+</head>
+<body>
+  <header>
+    <h1 class="slide-down">My Projects</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contactme.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="projects fade-in">
+    <h2>Projects</h2>
+    
+    <ul>
+      <li>An efficient privacy-enhancing cross-silo federated learning and Applications</li>
+      <li>Product Listing Page</li>
+      <li>Portfolio Website</li>
+    </ul>
+  </section>
+</body>
+
+</html>

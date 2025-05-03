@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+  color: #333;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 20px 0;
+  justify-content: center; 
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.navbar li a:hover {
+  color: #0056b3;
+}
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+nav {
+  margin-top: 10px;
+}
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #2980b9;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #1abc9c;
+}
+
+/* Content Card */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+
+
+.card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #34495e;
+}
+
+.card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="slide-down">Pravalika's Portfolio</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contactme.html">Contact</a></li>
+      </ul>
+    </nav>
+    
+  </header>
+
+  <section class="about fade-in">
+    <h2>About Me</h2>
+    <p>I’m passionate about building interactive and responsive websites using HTML, CSS, and JavaScript.</p>
+    
+  </section>
+</body>
+</html>
